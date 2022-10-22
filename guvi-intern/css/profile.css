@@ -1,3 +1,11 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background: lightgreen;
+}
+
 .profile {
     width:360px;
     height: min-content;
