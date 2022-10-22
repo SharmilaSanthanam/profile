@@ -39,27 +39,19 @@ if ($mysqli->connect_errno) {
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
-    <div class="Container">
-        <div class="Row">
+
             <div class="profile">
     <h1 class="text-center">Profile</h1>
     
     <?php if (isset($user)): ?>
         
         <p class="text-center">Hello <?= htmlspecialchars($user["name"]) ?></p>
-        <p class="text-center">Email Id: <?= htmlspecialchars($user["email"]) ?></p>
+        <p class="text-center">Your Email Id: <?= htmlspecialchars($user["email"]) ?></p>
         
-        <p class="text-center"><?php session_unset(); session_destroy();?><a href="http://localhost/guvi-intern/php/profile.php">Log out</a><?= exit; ?></p>
-        
-    <?php else: ?>
-        
-        <p class="text-center"><a href="http://localhost/guvi-intern/login.html">Log in</a> or <a href="http://localhost/guvi-intern/register.html">sign up</a></p>
-        
-    <?php endif; ?>
+        <p class="text-center"><?php session_unset(); session_destroy();?><a href="http://localhost/guvi-intern/index.html">Log out</a><?= exit; ?></p>
+   
     </div>
-    </div>
-    </div>
-</body>
+ </body>
 </html>
     
     
