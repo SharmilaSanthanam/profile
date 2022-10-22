@@ -11,15 +11,24 @@ body {
     height: min-content;
     padding: 20px;
     border-radius:12px;
-    background: white;
+    background: #ECFFDC;
 }
 
 .profile h1{
+    color: green;
+    border: solid 3px green;
+    border-radius: 10px;
+    background-color: lightgreen;
     font-size: 36px;
     margin-bottom: 25px;
 }
 
 .profile p{
+    color: #0BDA51;
     font-size: 36px;
     margin-bottom: 25px;
+}
+
+.profile a{
+    color: #8A9A5B;
 }
