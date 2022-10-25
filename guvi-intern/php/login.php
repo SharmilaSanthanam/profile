@@ -1,52 +1,44 @@
 <?php
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-$is_invalid = false;
+$con = mysqli_connect("localhost", "root", "", "login");
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    // $mysqli = require __DIR__ . "/database.php";
-    //database connection
-    $host = "localhost";
-$dbname = "login";
-$username = "root";
-$password = "";
+$query = mysqli_query($con, "SELECT `id` FROM `users` WHERE `email`='$email' AND `password`='$password'");
+$fetch = mysqli_fetch_assoc($query);
+$id = isset($fetch['id']);
 
-$mysqli = new mysqli(hostname: $host,
-                     username: $username,
-                     password: $password,
-                     database: $dbname);
-                     
-if ($mysqli->connect_errno) {
-    die("Connection error: " . $mysqli->connect_error);
+$num = mysqli_num_rows($query);
+
+if(!$email & !$password)
+{
+    echo "All fields required!";
 }
-    
-    $sql = sprintf("SELECT * FROM users
-                    WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email"]));
-    
-    $result = $mysqli->query($sql);
-    
-    $user = $result->fetch_assoc();
-    
-    if ($user) {
-        
-        if (password_verify($_POST["password"], $user["password_hash"])) {
-            
-            session_start();
-            
-            session_regenerate_id();
-            
-            $_SESSION["user_id"] = $user["id"];
-            
-            header("Location: http://localhost/guvi-intern/php/profile.php");
-            exit;
-        }
-    }
-    
-    $is_invalid = true;
+else
+if(!$email)
+{
+    echo "Email Required";
+}
+else
+if(!$password)
+{
+    echo "Password Required";
+}
+else
+if($num == 0)
+{
+    echo "Incorrect credentials";
 }
 
-?>  
-    <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
+else
+{
+
+    session_start();
+    $_SESSION['id'] = $id;
+    $_SESSION['email'] = $email;
+    echo "<script>window.location.href='http://localhost/guvi-intern/profile.html';</script>";
+
+    // echo "Success!!!";
+}
+
+?>
