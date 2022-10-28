@@ -7,7 +7,7 @@ body {
 }
 
 .profile {
-    width:360px;
+    width:max-content;
     height: min-content;
     padding: 20px;
     border-radius:12px;
@@ -30,5 +30,17 @@ body {
 }
 
 .profile a{
-    color: #8A9A5B;
+    color: green;
+}
+
+.lbutton{
+margin-left: 2%;
+border: green solid 2px;
+border-radius: 20px;
+}
+
+.rbutton{
+    margin-left: 60%;
+    border: green solid 2px;
+border-radius: 20px;
 }
