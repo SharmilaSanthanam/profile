@@ -38,7 +38,6 @@ else
     $_SESSION['email'] = $email;
     echo "<script>window.location.href='http://localhost/guvi-intern/profile.html';</script>";
 
-    // echo "Success!!!";
 }
 
 ?>
